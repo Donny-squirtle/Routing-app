@@ -5,4 +5,4 @@ function Notfoundpage() {
       </h1>
     );
 }
-export {Notfoundpage};
+export { Notfoundpage };

@@ -1,8 +1,13 @@
-function Loginpage() {
+import { Login } from '../components/login/Login';
+
+function Loginpage({isAuth}) {
     return (
-      <h1>
+      <div>
+        <h1>
           Log In
-      </h1>
+        </h1>
+        <Login isAuth={isAuth}/>
+      </div>
     );
 }
 export {Loginpage};
