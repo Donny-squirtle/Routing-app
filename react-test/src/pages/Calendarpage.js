@@ -10,4 +10,4 @@ function Calendarpage() {
         </div>
     );
 }
-export {Calendarpage};
+export { Calendarpage };

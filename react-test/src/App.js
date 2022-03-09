@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/header/Header';
 import './App.css';
 
@@ -9,20 +9,35 @@ import { Loginpage } from './pages/Loginpage';
 import { Notfoundpage } from './pages/Notfoundpage';
 import { Profilepage } from './pages/Profilepage';
 import { Calendarpage } from './pages/Calendarpage';
+import { RequireAuth } from './hoc/RequireAuth';
 
 function App() {
-  const [auth, setAuth] = useState(false);
+  let authStorage = sessionStorage.getItem("authStorage");
+  const [auth, setAuth] = useState(JSON.parse(authStorage));
+
+  let handleLogOut = () => {
+    sessionStorage.setItem("authStorage", false);
+    setAuth(false);
+  }
 
   return (
     <div className="page-body">
-      <Header />
+      <Header logout={handleLogOut} auth={auth}/>
       <div className="container">
         <Routes>
           <Route path="/" element={ <Homepage /> } />
           <Route path="/info" element={<Information />} />
-          <Route path="/profile" element={<Profilepage />} />
-          <Route path="/login" element={<Loginpage isAuth={setAuth}/>} />
-          <Route path="/calendar" element={ <Calendarpage /> } />
+          <Route path="/profile" element={
+            <RequireAuth auth={auth}>
+              <Profilepage />
+            </RequireAuth>
+          } />
+          <Route path="/login" element={<Loginpage isAuth={setAuth} authStorage={authStorage}/>} />
+          <Route path="/calendar" element={
+            <RequireAuth auth={ auth }>
+              <Calendarpage/>
+            </RequireAuth>
+          } />
           <Route path="*" element={ <Notfoundpage /> }/>
         </Routes>
       </div>

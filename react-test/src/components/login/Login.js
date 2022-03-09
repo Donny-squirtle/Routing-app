@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 
 
@@ -16,18 +17,26 @@ async function loginUser() {
             return data;
         })
 }
-function Login({isAuth}) {
+function Login({isAuth, fromPage}) {
     const [username, setUsername] = useState(null);
     const [password, setPasswoed] = useState(null);
+    const navigate = useNavigate();
 
     const handleSubmit = async evt => { 
         evt.preventDefault();
         const auth = await loginUser();
         if (auth.username != username || auth.password != password) {
-            alert("Incorrect data!")
+            alert("Incorrect username or password!")
         } else {
+            sessionStorage.setItem("authStorage", true);
             isAuth(true);
-            console.log("isAuth");
+            
+            if (fromPage === '/') {
+                navigate("/profile", { replace: true })
+            } else {
+                navigate(`${fromPage}`, { replace: true })
+            }
+            
         }
         
     }

@@ -5,4 +5,4 @@ function Homepage() {
       </h1>
     );
 }
-export {Homepage};
+export { Homepage };

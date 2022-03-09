@@ -5,4 +5,4 @@ function Information() {
       </h1>
     );
 }
-export {Information};
+export { Information };
