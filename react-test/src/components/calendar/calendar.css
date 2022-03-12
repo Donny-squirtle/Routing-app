@@ -82,8 +82,8 @@ input, button {
     user-select: none;
 }
 .weekdays .day, .days .day {
-    width: 3rem;
-    height: 3rem;
+    /* width: 3rem;
+    height: 3rem; */
     line-height: 3rem;
 }
 .days {
