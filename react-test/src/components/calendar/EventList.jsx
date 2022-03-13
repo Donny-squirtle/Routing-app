@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 function EventList({ eventsList, removeEvent, cursor }) {
   const getNewRandomKey = useCallback((item, i) => encodeURI(`${item},${i}`), []);
   return (
-    <ul>
+    <ul className="day-events">
       {
         eventsList.map((item, i) => (
-          <li key={getNewRandomKey(item, i)}>
+          <li className="day-events__item" key={getNewRandomKey(item, i)}>
             {item}
-            <button type="button" onClick={() => { removeEvent(cursor, i); }}>–</button>
+            <button className="day-events__btn" type="button" onClick={() => { removeEvent(cursor, i); }}>–</button>
           </li>
         ))
         }

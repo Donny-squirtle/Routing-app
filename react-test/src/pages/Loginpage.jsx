@@ -11,9 +11,7 @@ function Loginpage({ isAuth, authStorage }) {
   const fromPage = location.state?.from?.pathname || '/';
   return (
     <div>
-      <h1>
-        Log In
-      </h1>
+      <h1 className="page-title">Log In</h1>
       <Login isAuth={isAuth} fromPage={fromPage} />
     </div>
   );

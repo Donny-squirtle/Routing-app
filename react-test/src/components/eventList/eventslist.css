@@ -35,7 +35,7 @@
     content: "○";
     position: absolute;
     left: 0;
-    top: 5px;
+    top: 3px;
     font-size: 14px;
 }
 .sub-list__item:hover::before{

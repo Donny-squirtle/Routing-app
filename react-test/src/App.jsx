@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/header/Header';
-import Homepage from './pages/Homepage';
-import Information from './pages/Information';
+import Homepage from './pages/homepage/Homepage';
+import Information from './pages/information/Information';
 import Loginpage from './pages/Loginpage';
 import Notfoundpage from './pages/Notfoundpage';
 import Profilepage from './pages/Profilepage';
 import Calendarpage from './pages/Calendarpage';
 import RequireAuth from './hoc/RequireAuth';
 import './App.css';
+import './styles/globals.css';
 
 function App() {
   const authStorage = sessionStorage.getItem('authStorage');

@@ -27,13 +27,17 @@
   font-size: 18px;
   font-weight: bold;
 }
-
-
-.container{
-    max-width: 1160px;
-    padding: 0 20px;
-    margin: 0 auto;
-  }
+.btn.btn-header{
+  border-color: #EBE9E9;
+  color: #EBE9E9;
+  padding: 1em 2em;
+}
+.btn.btn-header:hover{
+  color: #795AD8;
+}
+.btn.btn-header::after{
+  background: #EBE9E9;
+}
   @media screen and (max-width: 900px){
     .container{
       max-width: 760px;

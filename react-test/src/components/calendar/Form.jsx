@@ -6,7 +6,7 @@ function Form({ submit, update, value }) {
     <form onSubmit={(e) => submit(e)}>
       <div className="input-group">
         <input
-          className="input-main"
+          className="input-page input-main"
           type="text"
           onChange={(e) => update(e.target.value)}
           placeholder="Planned something?"

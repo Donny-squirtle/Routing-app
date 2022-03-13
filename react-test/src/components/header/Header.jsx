@@ -30,7 +30,7 @@ function Header({ logout, auth }) {
           {
             !auth
               ? <Link to="/login">Log In</Link>
-              : <button type="submit" onClick={logout}>Log Out</button>
+              : <button className="btn btn-header" type="submit" onClick={logout}>Log Out</button>
           }
 
         </div>

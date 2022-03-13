@@ -37,11 +37,10 @@ function Login({ isAuth, fromPage }) {
 
   return (
 
-    <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="Enter user name" onChange={(evt) => setUsername(evt.target.value)} />
-      <input type="password" placeholder="Enter password" onChange={(evt) => setPasswoed(evt.target.value)} />
-      <input type="checkbox" />
-      <button type="submit"> Submit </button>
+    <form className="login-form" onSubmit={handleSubmit}>
+      <input className="input-page" type="text" placeholder="Enter user name" onChange={(evt) => setUsername(evt.target.value)} />
+      <input className="input-page" type="password" placeholder="Enter password" onChange={(evt) => setPasswoed(evt.target.value)} />
+      <button className="btn" type="submit"> Submit </button>
     </form>
 
   );

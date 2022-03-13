@@ -180,6 +180,7 @@ function Calendar({ day, month, year }) {
       {/* Search */}
       <div className="search">
         <input
+          className="input-page"
           onChange={(e) => setSearch(e.target.value)}
           type="text"
           placeholder="Search..."
