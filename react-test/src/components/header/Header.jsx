@@ -40,7 +40,9 @@ function Header({ logout, auth }) {
 }
 Header.propTypes = {
   logout: PropTypes.func.isRequired,
-  auth: PropTypes.bool.isRequired,
+  auth: PropTypes.bool,
 };
-
+Header.defaultProps = {
+  auth: PropTypes.null,
+};
 export default Header;

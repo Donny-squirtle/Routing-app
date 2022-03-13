@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './login.css';
 
 async function loginUser() {
-  return fetch('./login.json', {
+  return fetch('/Routing-app/login.json', {
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
@@ -49,5 +49,4 @@ Login.propTypes = {
   isAuth: PropTypes.func.isRequired,
   fromPage: PropTypes.string.isRequired,
 };
-
 export default Login;
