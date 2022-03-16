@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './login.css';
 
 async function loginUser() {
-  return fetch('/login.json', {
+  return fetch('./login.json', {
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
