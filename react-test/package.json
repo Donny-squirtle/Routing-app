@@ -40,7 +40,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://donny-squirtle.github.io/Routing-app/",
   "devDependencies": {
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",

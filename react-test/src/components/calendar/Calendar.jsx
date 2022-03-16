@@ -11,7 +11,10 @@ function Calendar({ day, month, year }) {
   const [search, setSearch] = useState('');
   const [event, setEvent] = useState('');
   const [events, setEvents] = useState({});
-
+  const [isEdit, setIsEdit] = useState(false);
+  const [currentEvent, setCurrentEvent] = useState('');
+  const [currentEventDay, setCurrentEventDay] = useState('');
+  const [currentEventDayId, setCurrentEventDayId] = useState('');
   const getNewRandomKey = useCallback((item, i) => encodeURI(`${item},${i}`), []);
 
   const getMonthName = (idx) => ['January', 'February', 'March', 'April',
@@ -100,7 +103,21 @@ function Calendar({ day, month, year }) {
       }
     }
   };
-
+  const editEvent = (taskDate, taskId) => {
+    setIsEdit(true);
+    setCurrentEventDay(taskDate);
+    setCurrentEventDayId(taskId);
+    setCurrentEvent(events[taskDate][taskId]);
+  };
+  const updateOnEditForm = (e) => {
+    setCurrentEvent(e);
+  };
+  const handleEditFormSubmit = () => {
+    events[currentEventDay][currentEventDayId] = currentEvent;
+    setEvents({ ...events });
+    saveEvents();
+    setIsEdit(false);
+  };
   useEffect(() => {
     setDate(day, month - 1, year);
     loadEvents();
@@ -161,6 +178,7 @@ function Calendar({ day, month, year }) {
           eventsList={eventsList}
           removeEvent={removeEvent}
           cursor={cursor}
+          editEvent={editEvent}
         />
       );
     }
@@ -174,7 +192,15 @@ function Calendar({ day, month, year }) {
       {/* New event */}
       <div className="event-add">
         <h2>Add new event</h2>
-        <Form value={event} submit={addEvent} update={updateEvent} />
+        <Form
+          value={event}
+          submit={addEvent}
+          update={updateEvent}
+          isEdit={isEdit}
+          currentEvent={currentEvent}
+          updateOnEditForm={updateOnEditForm}
+          handleEditFormSubmit={handleEditFormSubmit}
+        />
       </div>
 
       {/* Search */}

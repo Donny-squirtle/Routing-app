@@ -14,6 +14,7 @@ function Header({ logout, auth }) {
                 <ul className="main-navigation__list navigation-list">
                   <li className="navigation-list__item"><Link to="/">Home</Link></li>
                   <li className="navigation-list__item"><Link to="/info">Information</Link></li>
+                  <li className="navigation-list__item"><Link to="/profile">Profile</Link></li>
                 </ul>
               )
               : (

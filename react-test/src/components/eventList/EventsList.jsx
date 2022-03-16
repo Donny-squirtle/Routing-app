@@ -7,8 +7,9 @@ function EventList() {
   return (
     <div>
       <h2>Your events</h2>
-      <ul className="event-list">
-        {
+      {eventData ? (
+        <ul className="event-list">
+          {
             Object.keys(eventData).map((day, i) => (
               <li key={getNewRandomKey(day, i)} className="event-list__item">
                 <p className="event-list__item-title">{day}</p>
@@ -18,7 +19,11 @@ function EventList() {
               </li>
             ))
         }
-      </ul>
+        </ul>
+      ) : (
+        <div>Event is empty</div>
+      )}
+
     </div>
   );
 }

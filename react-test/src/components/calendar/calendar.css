@@ -52,14 +52,13 @@ input.input-main {
 }
 .weekdays .day, .days .day {
     max-width: 200px;
-    line-height: 3rem;
+    padding: 15px 5px 15px 5px;
 }
 .days {
     border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
     border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
 }
 .days .day {
-    padding-left: 5px;
     position: relative;
     cursor: pointer;
     transition: color, background 0.2s ease-in-out;
@@ -99,6 +98,8 @@ input.input-main {
     list-style: none;
 }
 .day-events__item{
+    display: flex;
+    justify-content: space-between;
     position: relative;
     padding-left: 15px;
 }
@@ -112,11 +113,22 @@ input.input-main {
     left: 0.3rem;
     top: 1.6rem;
 }
-.day-events__btn{
-    color: #f04;
+.day-events__item-text{
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-.day-active .day-events__btn{
-    color: #ffffff;
+.events-button{
+    display: flex;
+}
+.events-button__item{
+    padding: 0;
+    padding-left: 5px;
+}
+.day-active .events-button__item--delete path{
+    fill: #ffffff;
+}
+.day-active .events-button__item--edit path{
+    stroke: #ffffff;
 }
 .day-active .day-events__item::before{
     background: #ffffff;

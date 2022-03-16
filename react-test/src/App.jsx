@@ -5,7 +5,7 @@ import Homepage from './pages/homepage/Homepage';
 import Information from './pages/information/Information';
 import Loginpage from './pages/Loginpage';
 import Notfoundpage from './pages/Notfoundpage';
-import Profilepage from './pages/Profilepage';
+import Profilepage from './pages/profilepage/Profilepage';
 import Calendarpage from './pages/Calendarpage';
 import RequireAuth from './hoc/RequireAuth';
 import './App.css';
